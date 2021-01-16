@@ -3,6 +3,8 @@ package Library;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -70,6 +72,19 @@ public class AddBook extends JPanel{
 		gc.gridy = 4;
 		gc.gridwidth = 2;
 		add(add, gc);
+		
+		
+		add.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Book book = new Book(nameD.getText(), authorD.getText(), Integer.parseInt(ratingD.getText()) , summaryD.getText());
+				
+				MainFrame.addBookInFile(book);
+				
+				MainFrame.cl.show(MainFrame.mainPanel, "Main");
+			}		
+		});
 	
 	}
 }

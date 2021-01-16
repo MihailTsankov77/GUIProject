@@ -12,13 +12,13 @@ import javax.swing.JPanel;
 public class InfoBook extends JPanel {
 	
 	JLabel name = new JLabel("Name: ");
-	JLabel nameD = new JLabel("None");
+	static public JLabel nameD = new JLabel("None");
 	JLabel author = new JLabel("Author: ");
-	JLabel authorD = new JLabel("None");
+	static public JLabel authorD = new JLabel("None");
 	JLabel rating = new JLabel("Rating: ");
-	JLabel ratingD = new JLabel("None");
+	static public JLabel ratingD = new JLabel("None");
 	JLabel summary = new JLabel("Saummay: ");
-	JLabel summaryD = new JLabel("None");
+	static public JLabel summaryD = new JLabel("None");
 		
 		
 	public InfoBook() {

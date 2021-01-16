@@ -12,15 +12,21 @@ import javax.swing.JToolBar;
 
 public class ToolBar extends JToolBar{
 
-	JButton backToMain = new JButton("Back");
-	JButton addBookButton = new JButton("Add");
+	static JButton backToMain = new JButton("Back");
+	static JButton addBookButton = new JButton("Add");
 	
+	@SuppressWarnings("deprecation")
 	public ToolBar() {
+		
+		backToMain.hide();
 		
 		backToMain.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				addBookButton.show();
+				backToMain.hide();
+				
 				MainFrame.cl.show(MainFrame.mainPanel, "Main");
 				
 			}		
@@ -30,6 +36,8 @@ public class ToolBar extends JToolBar{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				backToMain.show();
+				addBookButton.hide();
 				MainFrame.cl.show(MainFrame.mainPanel, "AddBook");
 				
 			}		

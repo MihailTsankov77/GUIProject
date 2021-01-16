@@ -27,13 +27,22 @@ public class BooksPanel extends JPanel{
 	
 		gc.anchor = GridBagConstraints.CENTER;
 
-		for(int y = 0; y <40/5 ; y+=1) {
-			for(int x = 0; x < 5 ; x+=1) {
+		
+		int size = MainFrame.books.size();
+		
+		for(int y = 0; y <=MainFrame.books.size()/5 ; y+=1) {
+			
+			for(int x = 0; x <5 && size>0; x+=1) {
+				
 				gc.gridx = x;
 				gc.gridy = y;
 				
-				add(this.createButton("BOOK"), gc);
+				add(this.createButton(MainFrame.books.get(MainFrame.books.size()-size)), gc);
+				
+				size--;
 			}
+			
+			
 		}
 		
 		
@@ -41,16 +50,26 @@ public class BooksPanel extends JPanel{
 		
 	}
 	
-	private JButton createButton(String title) {
+	private JButton createButton(Book book) {
 		
-		JButton button = new JButton(title);
+		JButton button = new JButton(book.getName());
 		
 		button.setPreferredSize(new Dimension(100, 100));;
 
 		button.addActionListener(new ActionListener() {
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				
+				InfoBook.nameD.setText(book.getName());
+				InfoBook.authorD.setText(book.getAuthor());
+				InfoBook.ratingD.setText(String.valueOf(book.getRating()));
+				InfoBook.summaryD.setText(book.getSummary());
+				
+				ToolBar.backToMain.show();
+				ToolBar.addBookButton.hide();
+				
 				MainFrame.cl.show(MainFrame.mainPanel, "BookInfo");
 				
 			}	
