@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 public class BooksPanel extends JPanel{
 	
+	
 	public BooksPanel() {
 		
 		setBorder(BorderFactory.createTitledBorder("Butoni"));
@@ -20,7 +21,6 @@ public class BooksPanel extends JPanel{
 		
 		
 		setLayout(new GridBagLayout());
-		
 		GridBagConstraints gc = new GridBagConstraints();
 		
 		gc.insets = new Insets(10, 10, 10, 10);
@@ -37,16 +37,13 @@ public class BooksPanel extends JPanel{
 				gc.gridx = x;
 				gc.gridy = y;
 				
-				add(this.createButton(MainFrame.books.get(MainFrame.books.size()-size)), gc);
+				add(createButton(MainFrame.books.get(MainFrame.books.size()-size)), gc);
 				
 				size--;
 			}
 			
 			
-		}
-		
-		
-		
+		}	
 		
 	}
 	
@@ -78,4 +75,21 @@ public class BooksPanel extends JPanel{
 		});
 		return button;
 	}
+	
+	public void hello() {
+		
+	}
+	
+//	public void addButton(Book book) {
+//		MainFrame.books.add(book);
+//		
+//		gc.gridy = MainFrame.books.size();
+//		gc.gridx = MainFrame.books.size()%5;
+//		
+//		add(createButton(MainFrame.books.get(MainFrame.books.size()-1)), gc);
+//		
+//		MainFrame.bPanel = MainFrame.booksPanel;
+//	}
+	
+
 }

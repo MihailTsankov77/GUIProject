@@ -4,13 +4,13 @@ public class Book {
 	
 	private String Name = "NONE";
 	private String Author = "NONE";
-	private int Rating = -1 ;
+	private double Rating = -1 ;
 	private String Summary = "NONE";
 	
 	public Book(){
 	}
 	
-	public Book (String name, String author, int rating, String summary) {
+	public Book (String name, String author, double rating, String summary) {
 		this.setAuthor(author);
 		this.setName(name);
 		this.setRating(rating);
@@ -33,11 +33,11 @@ public class Book {
 		Author = author;
 	}
 
-	public int getRating() {
+	public double getRating() {
 		return Rating;
 	}
 
-	private void setRating(int rating) {
+	private void setRating(double rating) {
 		Rating = rating;
 	}
 

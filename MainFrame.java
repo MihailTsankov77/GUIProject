@@ -19,6 +19,9 @@ import javax.swing.SwingUtilities;
 
 public class MainFrame {
 	
+	
+	
+	
 	final static String fileName = "books.txt";
 	final static String buffer = "-x-x-x-x-";
 	
@@ -27,7 +30,11 @@ public class MainFrame {
 	
 	JFrame frame = new JFrame("Library");
 	static JPanel mainPanel = new JPanel();
-	JPanel booksPanel = new BooksPanel();
+	
+	public JPanel booksPanel = new BooksPanel();
+	
+	
+	
 	JPanel infoBook = new InfoBook();
 	JPanel addBook = new AddBook();
 	JToolBar tlBar = new ToolBar();
@@ -36,15 +43,17 @@ public class MainFrame {
 
 	public MainFrame () {
 		
+		
 		// CardLayout
 		
 		mainPanel.setLayout(cl);
+		
 		mainPanel.add(new JScrollPane(booksPanel), "Main");
+		
 		mainPanel.add(infoBook, "BookInfo");
 		mainPanel.add(addBook, "AddBook");
 		
 		cl.show(mainPanel, "Main");
-		
 		
 		//frame
 		frame.setLayout(new BorderLayout());
@@ -53,7 +62,8 @@ public class MainFrame {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.pack();
 		Dimension size = frame.getSize();
-		frame.setSize(size.width+20, 750);
+		frame.setSize(size.width+20, 700);
+		frame.setResizable(false);
 		frame.setVisible(true);
 	}
 	
@@ -98,7 +108,7 @@ public class MainFrame {
 		
 		String name = "";
 		String author = "";
-		int rating = -1;
+		double rating = -1;
 		String summary = "";
 		
 		
@@ -110,11 +120,12 @@ public class MainFrame {
 	    	  
 	    	  name = myReader.nextLine();
 	    	  author = myReader.nextLine();
-	    	  rating  = Integer.parseInt(myReader.nextLine());
+	    	  rating  = Double.parseDouble(myReader.nextLine());
 	    	  
 	    	  String data = myReader.nextLine();
+	    	  summary = "";
 	    	  while (!MainFrame.buffer.equals(data)){
-	    		  summary+= data;
+	    		  summary+= data + "\n";
 	    		  data = myReader.nextLine();
 	    	  }
 	    	 books.add(new Book(name, author, rating, summary));
@@ -132,9 +143,6 @@ public class MainFrame {
 	}
 	
 	
-	
-	
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -147,6 +155,7 @@ public class MainFrame {
 			}
 		});
 	}
+	
 	
 	
 
