@@ -18,30 +18,10 @@ public class ToolBar extends JToolBar{
 	@SuppressWarnings("deprecation")
 	public ToolBar() {
 		
+		backToMain.setFont(Main.font);
+		addBookButton.setFont(Main.font);
+		
 		backToMain.hide();
-		
-		backToMain.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				addBookButton.show();
-				backToMain.hide();
-				
-				MainFrame.cl.show(MainFrame.mainPanel, "Main");
-				
-			}		
-		});
-		
-		addBookButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				backToMain.show();
-				addBookButton.hide();
-				MainFrame.cl.show(MainFrame.mainPanel, "AddBook");
-				
-			}		
-		});
 		
 		this.setLayout(new BoxLayout(this,BoxLayout.LINE_AXIS));
 		
@@ -51,6 +31,32 @@ public class ToolBar extends JToolBar{
 		this.add(Box.createHorizontalGlue());
 		this.add(addBookButton);
 		this.add(Box.createRigidArea(new Dimension(20,0)));
+		
+		backToMain.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				addBookButton.show();
+				backToMain.hide();
+				
+				Main.cl.show(Main.mainPanel, "Main");
+				
+			}		
+		});
+		
+		addBookButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				backToMain.show();
+				addBookButton.hide();
+				AddBookPanel.returnToNormal();
+				
+				Main.cl.show(Main.mainPanel, "AddBook");
+			}		
+		});
 	}
 	
 

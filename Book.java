@@ -7,9 +7,6 @@ public class Book {
 	private double Rating = -1 ;
 	private String Summary = "NONE";
 	
-	public Book(){
-	}
-	
 	public Book (String name, String author, double rating, String summary) {
 		this.setAuthor(author);
 		this.setName(name);
